@@ -11,6 +11,7 @@
         # erlang: 21.0.4
         # nodejs: 8.11.3
         packer: 1.2.5
+    - curl
     - docker
     - docker-compose
     - elixir
@@ -20,6 +21,7 @@
     - htop
     - mc
     - nano
+    - nload
     - nodejs
     - ssh-server
     - vim
