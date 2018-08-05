@@ -20,6 +20,7 @@
     - golang
     - htop
     - mc
+    - mysql
     - nano
     - nload
     - nodejs
