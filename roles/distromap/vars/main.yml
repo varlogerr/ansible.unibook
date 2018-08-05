@@ -1,7 +1,9 @@
 ---
 distromap_codename_mapping:
-  xenial: xenial
+  jessie: xenial
+  stretch: xenial
   sylvia: xenial
+  xenial: xenial
   bionic: bionic
   tara: bionic
 
