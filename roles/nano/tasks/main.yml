@@ -1,0 +1,7 @@
+---
+- block:
+
+  - name: install nano
+    apt: name=nano state="present"
+
+  become: true
