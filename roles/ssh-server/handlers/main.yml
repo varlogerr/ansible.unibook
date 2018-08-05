@@ -1,0 +1,7 @@
+---
+- block:
+
+  - name: start ssh-server
+    service: name=ssh state=started enabled=yes
+
+  become: true

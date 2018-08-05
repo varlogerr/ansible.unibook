@@ -1,0 +1,8 @@
+---
+- block:
+
+  - name: install openssh-server
+    apt: name=openssh-server state="present"
+    notify: start ssh-server
+
+  become: true
