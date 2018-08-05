@@ -11,4 +11,15 @@
         # erlang: 21.0.4
         # nodejs: 8.11.3
         packer: 1.2.5
+    - docker
+    - docker-compose
+    - elixir
+    - erlang
     - git
+    - golang
+    - htop
+    - mc
+    - nano
+    - nodejs
+    - ssh-server
+    - vim
