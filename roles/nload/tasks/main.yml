@@ -1,0 +1,7 @@
+---
+- block:
+
+  - name: install nload
+    apt: name=nload state=latest
+
+  become: true
