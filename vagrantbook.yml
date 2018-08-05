@@ -3,6 +3,7 @@
 #  directory serve as demo, but it still can provision a local vagrant environment
 - hosts: localhost
   roles:
+    - ansible
     - role: asdf
       asdf_apps:
         # golang: 1.10.3

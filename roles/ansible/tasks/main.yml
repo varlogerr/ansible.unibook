@@ -1,0 +1,31 @@
+---
+- block:
+
+  - name: add apt signing key
+    apt_key:
+      id: 6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+      keyserver: hkp://keyserver.ubuntu.com:80
+      state: present
+    register: ansible_apt_key_added
+    ignore_errors: yes
+
+  - name: add apt signing key
+    apt_key:
+      id: 6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+      keyserver: keyserver.ubuntu.com
+      state: present
+    when: ansible_apt_key_added is failed
+
+  - name: add ppa
+    apt_repository:
+      repo: "{{ item }}"
+      filename: ansible
+      state: present
+    with_items:
+      - "deb http://ppa.launchpad.net/ansible/ansible/ubuntu {{ distromap_distro_codename }} main"
+      - "deb-src http://ppa.launchpad.net/ansible/ansible/ubuntu {{ distromap_distro_codename }} main"
+
+  - name: install ansible
+    apt: name=ansible update_cache=yes state=latest
+
+  become: true
