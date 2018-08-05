@@ -21,7 +21,7 @@
     - golang
     - htop
     - mc
-    - mysql
+    - mariadb
     - nano
     - nload
     - nodejs
