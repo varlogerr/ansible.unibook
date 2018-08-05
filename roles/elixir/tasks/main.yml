@@ -1,0 +1,15 @@
+---
+- block:
+
+  - name: add apt signing key
+    apt_key:
+      url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+      state: present
+
+  - name: add ppa
+    apt: deb=https://packages.erlang-solutions.com/erlang/elixir/FLAVOUR_2_download/elixir_1.6.6-2~ubuntu~artful_amd64.deb
+
+  - name: install elixir
+    apt: name=elixir state=latest update_cache=yes
+
+  become: true
