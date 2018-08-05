@@ -1,0 +1,3 @@
+---
+asdf_version: v0.5.1
+asdf_dir: "{{ ansible_env.HOME }}/.asdf"

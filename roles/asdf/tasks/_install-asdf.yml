@@ -1,0 +1,25 @@
+---
+# Issues:
+# * 'NODEJS_CHECK_SIGNATURES=no' for nodejs 'gpg: Can't check signature: No public key'
+#   see https://github.com/asdf-vm/asdf-nodejs/issues/82 for details
+- name: checkout asdf
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: "{{ asdf_dir }}"
+    version: "{{ asdf_version }}"
+
+- name: add asdf to profile
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.profile"
+    create: yes
+    mode: 0644
+    line: ". {{ asdf_dir }}/asdf.sh"
+    insertafter: EOF
+
+- name: add asdf completions to bashrc
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    create: yes
+    mode: 0644
+    line: ". {{ asdf_dir }}/completions/asdf.bash"
+    insertafter: EOF

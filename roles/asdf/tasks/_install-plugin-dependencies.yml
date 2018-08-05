@@ -1,0 +1,13 @@
+---
+- block:
+  
+  - name: install plugin dependencies
+    apt: name="{{ item }}" install_recommends=no state=latest
+    with_items:
+    - unzip
+    - automake
+    - autoconf
+    - libncurses5-dev
+    - gcc
+
+  become: true
