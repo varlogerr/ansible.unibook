@@ -1,0 +1,6 @@
+---
+# this playbook ansible.cfg and entire content under config directory
+# serve as demo, but it still can provision a local vagrant environment
+- hosts: localhost
+  roles:
+    - git
