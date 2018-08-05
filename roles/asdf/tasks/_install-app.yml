@@ -1,0 +1,20 @@
+---
+- name: "install {{ asdf_apps_app_name }} plugin"
+  command: "bash -lc 'asdf plugin-add {{ asdf_apps_app_name }}'"
+  args:
+    creates: "{{ asdf_dir }}/plugins/{{ asdf_apps_app_name }}"
+
+- name: "install {{ asdf_apps_app_name }}:{{ asdf_apps_app_version }}"
+  command: "bash -lc 'asdf install {{ asdf_apps_app_name }} {{ asdf_apps_app_version }}'"
+  args:
+    creates: "{{ asdf_dir }}/installs/{{ asdf_apps_app_name }}/{{ asdf_apps_app_version }}"
+  when: asdf_apps_install_prefixes[asdf_apps_app_name] is not defined
+
+- name: "install {{ asdf_apps_app_name }}:{{ asdf_apps_app_version }}"
+  command: "bash -lc '{{ asdf_apps_install_prefixes[asdf_apps_app_name] }} asdf install {{ asdf_apps_app_name }} {{ asdf_apps_app_version }}'"
+  args:
+    creates: "{{ asdf_dir }}/installs/{{ asdf_apps_app_name }}/{{ asdf_apps_app_version }}"
+  when: asdf_apps_install_prefixes[asdf_apps_app_name] is defined
+
+- name: "set {{ asdf_apps_app_name }}:{{ asdf_apps_app_version }} as global"
+  command: "bash -lc 'asdf global {{ asdf_apps_app_name }} {{ asdf_apps_app_version }}'"

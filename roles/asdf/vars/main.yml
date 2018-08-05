@@ -1,0 +1,3 @@
+---
+asdf_apps_install_prefixes:
+  nodejs: NODEJS_CHECK_SIGNATURES=no
