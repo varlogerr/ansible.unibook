@@ -1,0 +1,16 @@
+---
+- block:
+
+  - name: install docker-compose
+    get_url:
+      url: https://github.com/docker/compose/releases/download/1.21.2/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}
+      dest: /usr/local/bin/docker-compose
+      mode: 0777
+
+  - name: install docker-compose command completion
+    get_url:
+      url: https://raw.githubusercontent.com/docker/compose/1.21.2/contrib/completion/bash/docker-compose
+      dest: /etc/bash_completion.d/docker-compose
+      mode: 0644
+
+  become: true
