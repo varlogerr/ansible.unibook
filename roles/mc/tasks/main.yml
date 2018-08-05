@@ -1,0 +1,7 @@
+---
+- block:
+
+  - name: install mc
+    apt: name=mc state="present"
+
+  become: true
