@@ -1,0 +1,8 @@
+---
+distromap_codename_mapping:
+  xenial: xenial
+  sylvia: xenial
+  bionic: bionic
+  tara: bionic
+
+distromap_distro_codename: "{{ distromap_codename_mapping[ansible_distribution_release] }}"
