@@ -1,0 +1,38 @@
+---
+- block:
+
+  - name: add apt signing key
+    apt_key:
+      id: C73998DC9DFEA6DCF1241057308C15A29AD198E9
+      keyserver: hkp://keyserver.ubuntu.com:80
+      state: present
+    register: git_apt_key_added
+    ignore_errors: yes
+
+  - name: add apt signing key
+    apt_key:
+      id: C73998DC9DFEA6DCF1241057308C15A29AD198E9
+      keyserver: keyserver.ubuntu.com
+      state: present
+    when: git_apt_key_added is failed
+
+  - name: add ppa
+    apt_repository:
+      repo: "{{ item }}"
+      filename: golang
+      state: present
+    with_items:
+      - "deb http://ppa.launchpad.net/gophers/archive/ubuntu {{ distromap_distro_codename }} main"
+      - "deb-src http://ppa.launchpad.net/gophers/archive/ubuntu {{ distromap_distro_codename }} main"
+
+  - name: install golang
+    apt: name=golang-1.10-go update_cache=yes state=latest
+
+  become: true
+
+- name: add golang to $PATH
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    create: yes
+    mode: 0644
+    line: "PATH=$PATH:/usr/lib/go-1.10/bin"
