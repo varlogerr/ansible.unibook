@@ -4,10 +4,17 @@
   - name: install plugin dependencies
     apt: name="{{ item }}" install_recommends=no state=latest
     with_items:
-    - unzip
-    - automake
     - autoconf
-    - libncurses5-dev
+    - automake
     - gcc
+    - libncurses5-dev
+    - libffi-dev
+    - libreadline-dev
+    - libssl-dev
+    - libtool
+    - libxslt-dev
+    - libyaml-dev
+    - unzip
+    - unixodbc-dev
 
   become: true
