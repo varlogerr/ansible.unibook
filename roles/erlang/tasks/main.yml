@@ -1,0 +1,15 @@
+---
+- block:
+
+  - name: add apt signing key
+    apt_key:
+      url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+      state: present
+
+  - name: add ppa
+    apt: deb=https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_1_general/esl-erlang_21.0-1~ubuntu~artful_amd64.deb
+
+  - name: install erlang
+    apt: name=esl-erlang state=latest update_cache=yes
+
+  become: true
