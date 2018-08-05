@@ -1,0 +1,7 @@
+---
+- block:
+
+  - name: install htop
+    apt: name=htop state=present
+
+  become: true
