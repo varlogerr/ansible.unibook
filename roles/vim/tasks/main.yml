@@ -1,0 +1,7 @@
+---
+- block:
+
+  - name: install vim
+    apt: name=vim state="present"
+
+  become: true
