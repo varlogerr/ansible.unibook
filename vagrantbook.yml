@@ -20,8 +20,8 @@
     - git
     - golang
     - htop
-    - mc
     - mariadb
+    - mc
     - nano
     - nload
     - nodejs
