@@ -6,26 +6,17 @@
       id: F1656F24C74CD1D8
       keyserver: hkp://keyserver.ubuntu.com:80
       state: present
-    register: git_apt_key_added
-    ignore_errors: yes
-
-  - name: add apt signing key
-    apt_key:
-      id: F1656F24C74CD1D8
-      keyserver: hkp://keyserver.ubuntu.com:80
-      state: present
-    when: git_apt_key_added is failed
 
   - name: add ppa
     apt_repository:
-      repo: "deb [arch=amd64,i386] http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu {{ distromap_distro_codename }} main"
+      repo: "deb [arch=amd64,i386] http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.3/{{ mariadb_distro_name }} {{ mariadb_distro_codename }} main"
       filename: mariadb103
       state: present
 
-  - name: install mariadb
-    apt: name=git update_cache=yes state=latest
+  - name: install mariadb server / client
+    apt: name={{ item }} update_cache=yes state=latest
     with_items:
-      - mariadb-server
-      - mariadb-client
+      - mariadb-server-10.3
+      - mariadb-client-10.3
 
   become: true

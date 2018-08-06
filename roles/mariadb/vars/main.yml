@@ -1,0 +1,19 @@
+---
+mariadb_distro_name_mapping:
+  jessie: debian
+  stretch: debian
+  sylvia: ubuntu
+  xenial: ubuntu
+  bionic: ubuntu
+  tara: ubuntu
+
+mariadb_distro_codename_mapping:
+  jessie: jessie
+  stretch: stretch
+  sylvia: xenial
+  xenial: xenial
+  bionic: bionic
+  tara: bionic
+
+mariadb_distro_name: "{{ mariadb_distro_name_mapping[ansible_distribution_release] }}"
+mariadb_distro_codename: "{{ mariadb_distro_codename_mapping[ansible_distribution_release] }}"
