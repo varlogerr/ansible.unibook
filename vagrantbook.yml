@@ -12,6 +12,7 @@
         # nodejs: 8.11.3
         packer: 1.2.5
         # postgres: 10.4
+        # rebar:  3.6.0
     - curl
     - docker
     - docker-compose
