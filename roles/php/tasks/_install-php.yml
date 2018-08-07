@@ -1,0 +1,6 @@
+- block:
+
+  - name: install php
+    apt: name="php{{ php_version }}" state=latest update_cache=yes
+
+  become: true
