@@ -1,0 +1,12 @@
+---
+- block:
+
+  - name: "install php{{ php_version }}-{{ php_extension }}"
+    apt: name="php{{ php_version }}-{{ php_extension }}" state=latest update_cache=yes
+    when: php_extension not in no_ver_extensions
+
+  - name: "install php-{{ php_extension }}"
+    apt: name="php{{ php_version }}-{{ php_extension }}" state=latest update_cache=yes
+    when: php_extension in no_ver_extensions
+
+  become: true

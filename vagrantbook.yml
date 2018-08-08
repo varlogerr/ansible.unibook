@@ -26,6 +26,39 @@
     - nano
     - nload
     - nodejs
-    - php
+    - role: php
+      php_extensions:
+      - bcmath
+      - bz2
+      - cgi
+      - cli
+      - common
+      - curl
+      - dev
+      - enchant
+      - fpm
+      # - gd # can not be installed on debian 9
+      - gmp
+      - imap
+      - interbase
+      # - intl # can not be installed debian 9
+      - json
+      - ldap
+      - mbstring
+      - mysql
+      - odbc
+      - pgsql
+      - phpdbg
+      - pspell
+      - readline
+      - recode
+      - soap
+      - sqlite3
+      - sybase
+      - tidy
+      - xml
+      - xmlrpc
+      - zip
+      - xdebug
     - ssh-server
     - vim
