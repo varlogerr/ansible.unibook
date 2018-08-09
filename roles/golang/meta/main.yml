@@ -1,4 +1,4 @@
 ---
 dependencies:
-  - { role: distromap }
-  - { role: apt-utils }
+  - distromap
+  - apt-utils
