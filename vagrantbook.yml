@@ -41,7 +41,7 @@
       - gmp
       - imap
       - interbase
-      # - intl # can not be installed debian 9
+      # - intl # can not be installed on debian 9
       - json
       - ldap
       - mbstring
