@@ -1,9 +1,10 @@
 ---
-# this playbook along with ansible.cfg .gitignore and entire content under config
-#  directory serve as demo, but it still can provision a local vagrant environment
+# this playbook along with ansible.cfg, .gitignore and entire content under config
+# directory serve as demo, but it still can provision a local vagrant environment
 - hosts: localhost
   roles:
     - ansible
+    - apache
     - role: asdf
       asdf_apps:
         # golang: 1.10.3
