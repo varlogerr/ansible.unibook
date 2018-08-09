@@ -3,6 +3,8 @@
 
   - name: install openssh-server
     apt: name=openssh-server state="present"
-    notify: start ssh-server
+
+  - name: start ssh-server
+    service: name=ssh state=started enabled=yes
 
   become: true

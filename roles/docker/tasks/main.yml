@@ -11,10 +11,11 @@
 
   - name: install docker
     apt: name=docker-ce state=latest update_cache=yes
-    notify: start docker
 
   - name: add {{ ansible_env.LOGNAME }} to docker group
     user: name="{{ ansible_env.LOGNAME }}" groups=docker append=yes
-    notify: start docker
+
+  - name: start docker
+    service: name=docker state=started enabled=yes
 
   become: true
