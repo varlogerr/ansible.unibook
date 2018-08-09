@@ -7,4 +7,12 @@
   - name: start apache2
     service: name=apache2 state=started enabled=yes
 
+  - name: enable mod_rewrite
+    file:
+      src: /etc/apache2/mods-available/rewrite.load
+      dest: /etc/apache2/mods-enabled/rewrite.load
+      state: link
+    notify: restart apache2
+    when: apache_enable_moderewrite
+
   become: yes

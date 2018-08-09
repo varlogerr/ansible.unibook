@@ -4,7 +4,8 @@
 - hosts: localhost
   roles:
     - ansible
-    - apache2
+    - role: apache2
+      apache_enable_moderewrite: true
     - apserv
     - role: asdf
       asdf_apps:
