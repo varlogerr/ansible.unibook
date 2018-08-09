@@ -1,0 +1,8 @@
+---
+- block:
+
+  - name: install php module for apache2
+    apt: name="libapache2-mod-php{{ php_version }}" state=present
+    notify: restart apache2
+
+  become: yes

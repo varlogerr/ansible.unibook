@@ -5,6 +5,7 @@
   roles:
     - ansible
     - apache
+    - apserv
     - role: asdf
       asdf_apps:
         # golang: 1.10.3
