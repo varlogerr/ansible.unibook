@@ -1,0 +1,6 @@
+---
+dependencies:
+  - role: apserv
+    php_extensions:
+    - mysql
+  - mariadb

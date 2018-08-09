@@ -3,6 +3,7 @@
 # but it still can provision a local vagrant environment
 - hosts: localhost
   roles:
+    - ampserv
     - ansible
     - role: apache2
       apache_enable_moderewrite: true
