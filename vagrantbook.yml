@@ -4,7 +4,7 @@
 - hosts: localhost
   roles:
     - ansible
-    - apache
+    - apache2
     - apserv
     - role: asdf
       asdf_apps:
