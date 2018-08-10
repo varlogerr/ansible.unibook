@@ -1,2 +1,4 @@
 ---
+# supported versions see here:
+# https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 nodejs_version: 8.x
