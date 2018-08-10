@@ -1,4 +1,5 @@
 ---
 php_version: "7.2"
-php_install_composer: yes
+php_install_composer: false
+
 php_extensions: []
