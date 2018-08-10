@@ -1,11 +1,11 @@
 ---
 - block:
 
-  - name: "install php{{ php_version }}-{{ php_extension }}"
+  - name: "install php{{ php_version }}-{{ php_extension }} extension"
     apt: name="php{{ php_version }}-{{ php_extension }}" state=latest update_cache=yes
     when: php_extension not in no_ver_extensions
 
-  - name: "install php-{{ php_extension }}"
+  - name: "install php-{{ php_extension }} extension"
     apt: name="php{{ php_version }}-{{ php_extension }}" state=latest update_cache=yes
     when: php_extension in no_ver_extensions
 
