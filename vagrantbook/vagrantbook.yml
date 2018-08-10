@@ -31,6 +31,7 @@
     - nload
     - nodejs
     - role: php
+      php_install_composer: true
       php_extensions:
       - bcmath
       - bz2
