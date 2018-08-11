@@ -2,9 +2,3 @@
 virtualbox_distro_codename_mapping:
   jessie: jessie
   stretch: stretch
-  sylvia: distromap_distro_codename
-  xenial: distromap_distro_codename
-  bionic: distromap_distro_codename
-  tara: distromap_distro_codename
-
-virtualbox_distro_codename: "{{ virtualbox_distro_codename_mapping[ansible_distribution_release] }}"

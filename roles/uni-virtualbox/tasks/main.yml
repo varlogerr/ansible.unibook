@@ -1,21 +1,3 @@
 ---
-- block:
-
-  - name: add public key
-    apt_key:
-      url: "{{ item }}"
-      state: present
-    with_items:
-      - https://www.virtualbox.org/download/oracle_vbox.asc
-      - https://www.virtualbox.org/download/oracle_vbox_2016.asc
-
-  - name: add ppa
-    apt_repository:
-      repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ virtualbox_distro_codename }} contrib"
-      filename: virtualbox
-      state: present
-
-  - name: install virtualbox
-    apt: update_cache=yes name=virtualbox-5.2 state=latest
-
-  become: true
+- include_tasks: _set-distro-codename.yml
+- include_tasks: _install-virtualbox.yml
