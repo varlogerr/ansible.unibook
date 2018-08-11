@@ -1,4 +1,4 @@
 ---
-virtualbox_distro_codename_mapping:
+vbox_distro_codename_mapping:
   jessie: jessie
   stretch: stretch

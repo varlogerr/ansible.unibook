@@ -1,6 +1,0 @@
----
-- name: set distro codename mapping
-  set_fact: virtualbox_distro_codename_mapping="{{ distromap_codename_mapping | combine(virtualbox_distro_codename_mapping) }}"
-
-- name: set distro codename
-  set_fact: virtualbox_distro_codename="{{ virtualbox_distro_codename_mapping[ansible_distribution_release] }}"

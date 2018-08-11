@@ -11,7 +11,7 @@
 
   - name: add ppa
     apt_repository:
-      repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ virtualbox_distro_codename }} contrib"
+      repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ vbox_distro_codename }} contrib"
       filename: virtualbox
       state: present
 
