@@ -3,17 +3,15 @@
 
   - name: add public key
     apt_key:
-      url: https://www.virtualbox.org/download/oracle_vbox.asc
+      url: "{{ item }}"
       state: present
-
-  - name: add public key
-    apt_key:
-      url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
-      state: present
+    with_items:
+      - https://www.virtualbox.org/download/oracle_vbox.asc
+      - https://www.virtualbox.org/download/oracle_vbox_2016.asc
 
   - name: add ppa
     apt_repository:
-      repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ distromap_distro_codename }} contrib"
+      repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ virtualbox_distro_codename }} contrib"
       filename: virtualbox
       state: present
 
