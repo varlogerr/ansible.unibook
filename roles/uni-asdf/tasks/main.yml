@@ -1,5 +1,5 @@
 ---
 - include_tasks: _install-plugin-dependencies.yml
 - include_tasks: _install-asdf.yml
-- include_tasks: _install-app.yml asdf_apps_app_name="{{ item.key }}" asdf_apps_app_version="{{ item.value }}"
-  loop: "{{ q('dict', asdf_apps) }}"
+- include_tasks: _install-app.yml asdf_apps_app_name="{{ item.keys()[0] }}" asdf_apps_app_version="{{ item.values()[0] }}"
+  with_items: "{{ asdf_apps }}"
