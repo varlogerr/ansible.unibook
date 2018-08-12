@@ -1,0 +1,31 @@
+---
+- block:
+
+  - name: add apt signing key
+    apt_key:
+      id: 6CF401B78A9D7393F7F32E7510B3F6FDBE35DEDD
+      keyserver: hkp://keyserver.ubuntu.com:80
+      state: present
+    register: doublecmd_apt_key_added
+    ignore_errors: yes
+
+  - name: add apt signing key
+    apt_key:
+      id: 6CF401B78A9D7393F7F32E7510B3F6FDBE35DEDD
+      keyserver: keyserver.ubuntu.com
+      state: present
+    register: doublecmd_apt_key_added
+    ignore_errors: yes
+    when: doublecmd_apt_key_added is failed
+
+  - name: add ppa
+    apt_repository: repo="{{ item }}" filename=copyq state=present
+    with_items:
+      - "deb http://ppa.launchpad.net/alexx2000/doublecmd/ubuntu {{ distromap_distro_codename }} main"
+      - "deb-src http://ppa.launchpad.net/alexx2000/doublecmd/ubuntu {{ distromap_distro_codename }} main"
+    when: doublecmd_apt_key_added is success
+
+  - name: install double commander
+    apt: name=doublecmd-gtk state=latest
+
+  become: true
