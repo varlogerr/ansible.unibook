@@ -21,6 +21,7 @@
     # - uni-copyq
     - uni-curl
     # - uni-dbvis
+    # - uni-deluge
     - uni-docker
     - uni-docker-compose
     - uni-elixir
