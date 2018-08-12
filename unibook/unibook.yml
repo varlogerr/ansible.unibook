@@ -17,6 +17,7 @@
       - packer: 1.2.5
       # - postgres: 10.4
       # - rebar:  3.6.0
+    - uni-brave-browser
     - uni-curl
     - uni-docker
     - uni-docker-compose

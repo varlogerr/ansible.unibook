@@ -1,0 +1,17 @@
+---
+- block:
+
+  - name: add apt signing key
+    apt_key:
+      url: "https://s3-us-west-2.amazonaws.com/brave-apt/keys.asc"
+      state: present
+
+  - name: add ppa
+    apt_repository:
+      repo: "deb [arch=amd64] https://s3-us-west-2.amazonaws.com/brave-apt {{ distromap_distro_codename }} main"
+      filename: brave-browser
+
+  - name: install brave
+    apt: update_cache=yes name=brave state=latest
+
+  become: true
