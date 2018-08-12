@@ -20,6 +20,7 @@
     # - uni-brave-browser
     # - uni-copyq
     - uni-curl
+    # - uni-dbvis
     - uni-docker
     - uni-docker-compose
     - uni-elixir
