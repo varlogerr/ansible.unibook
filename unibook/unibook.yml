@@ -24,10 +24,12 @@
     # - uni-deluge
     - uni-docker
     - uni-docker-compose
+    # - uni-doublecmd
     - uni-elixir
     - uni-erlang
     - uni-git
     - uni-golang
+    # - uni-google-chrome
     - role: uni-hosts
       hosts_host_to_ip_map: {}
     - uni-htop
@@ -71,7 +73,18 @@
       - xmlrpc
       - zip
       - xdebug
+    # - uni-skype
     - uni-ssh-server
+    # - uni-sublimetext
     - uni-vagrant
     - uni-vim
     - uni-vbox
+    # - role: uni-vscode
+    #   vscode_extensions:
+    #   - bbenoist.vagrant
+    #   - leizongmin.node-module-intellisense
+    #   - mjmcloug.vscode-elixir
+    #   - pgourlain.erlang
+    #   - sidneys1.gitconfig
+    #   - vscoss.vscode-ansible
+    #   - wholroyd.jinja
