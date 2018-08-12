@@ -1,0 +1,28 @@
+---
+- block:
+
+  - name: add apt signing key
+    apt_key:
+      id: 407DCF2158B84056D11BBC944F0B2F06AA07D22F
+      keyserver: hkp://keyserver.ubuntu.com:80
+      state: present
+    register: copyq_apt_key_added
+    ignore_errors: yes
+
+  - name: add apt signing key
+    apt_key:
+      id: 407DCF2158B84056D11BBC944F0B2F06AA07D22F
+      keyserver: keyserver.ubuntu.com
+      state: present
+    when: copyq_apt_key_added is failed
+
+  - name: add ppa
+    apt_repository: repo="{{ item }}" filename=copyq state=present
+    with_items:
+      - "deb http://ppa.launchpad.net/hluk/copyq/ubuntu {{ distromap_distro_codename }} main"
+      - "deb-src http://ppa.launchpad.net/hluk/copyq/ubuntu {{ distromap_distro_codename }} main"
+
+  - name: install copyq
+    apt: name=copyq update_cache=yes state=latest
+
+  become: true
