@@ -1,0 +1,18 @@
+---
+- block:
+
+  - name: remove host {{ hosts_host }} from {{ hosts_hosts_file_path }}
+    lineinfile:
+      path: "{{ hosts_hosts_file_path }}"
+      state: absent
+      regexp: "\\s{{ hosts_host | regex_escape() }}$"
+
+  - name: add host {{ hosts_host }} to {{ hosts_hosts_file_path }}
+    lineinfile:
+      dest: "{{ hosts_hosts_file_path }}"
+      create: yes
+      mode: 0644
+      line: "{{ hosts_ip }} {{ hosts_host }}"
+      insertafter: EOF
+
+  become: true
