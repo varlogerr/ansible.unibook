@@ -1,0 +1,3 @@
+---
+- include_tasks: _install-vscode.yml
+- include_tasks: _install-extensions.yml
