@@ -78,6 +78,7 @@
     # - uni-sublimetext
     - uni-vagrant
     - uni-vim
+    # - uni-vls
     - uni-vbox
     # - role: uni-vscode
     #   vscode_extensions:
