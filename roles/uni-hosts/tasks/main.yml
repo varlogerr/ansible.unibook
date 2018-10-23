@@ -1,3 +1,6 @@
 ---
-  - include_tasks: _add-host.yml hosts_host="{{ item.key }}" hosts_ip="{{ item.value }}"
+  - include_tasks: _add-host.yml
+    vars:
+      hosts_host: "{{ item.key }}"
+      hosts_ip: "{{ item.value }}"
     loop: "{{ q('dict', hosts_host_to_ip_map) }}"

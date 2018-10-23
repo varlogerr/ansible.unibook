@@ -2,8 +2,9 @@
 - block:
 
   - name: install apt utils
-    apt: name="{{ item }}" state="present"
-    with_items:
+    apt: name="{{ packages }}" state="present"
+    vars:
+      packages:
       - apt-transport-https
       - ca-certificates
       - gnupg2
