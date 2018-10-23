@@ -1,0 +1,7 @@
+---
+- block:
+
+  - name: install sublime text
+    apt: name=terminator state=latest
+
+  become: true
