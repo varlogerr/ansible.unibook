@@ -12,7 +12,7 @@
       dest: "{{ hosts_hosts_file_path }}"
       create: yes
       mode: 0644
-      line: "{{ hosts_ip }} {{ hosts_host }}"
+      line: "{{ item.value if inventory_hostname != item.key else '127.0.0.1' }} {{ item.key }}"
       insertafter: EOF
 
   become: true
