@@ -1,4 +1,11 @@
 ---
+- name: "install {{ asdf_apps_app_name }} deps"
+  apt: name="{{ packages }}" install_recommends=no state=present
+  vars:
+    packages: "{{ asdf_apps_deps[asdf_apps_app_name] }}"
+  when: asdf_apps_deps[asdf_apps_app_name] is defined
+  become: true
+
 - name: "install {{ asdf_apps_app_name }} plugin"
   command: "bash -lc 'asdf plugin-add {{ asdf_apps_app_name }}'"
   args:

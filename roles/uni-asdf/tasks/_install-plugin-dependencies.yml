@@ -1,7 +1,7 @@
 ---
 - block:
   
-  - name: install plugin dependencies
+  - name: install common dependencies
     apt: name="{{ packages }}" install_recommends=no state=latest
     vars:
       packages:
@@ -11,14 +11,11 @@
         - gcc
         - libncurses5-dev
         - libffi-dev
-        - libgl1-mesa-dev
         - libreadline-dev
         - libssl-dev
         - libtool
-        - libwxgtk3.0-dev
         - libxslt-dev
         - libyaml-dev
-        - m4
         - unzip
         - unixodbc-dev
 
