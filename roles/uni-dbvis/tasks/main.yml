@@ -2,6 +2,6 @@
 - block:
 
   - name: install dbvis
-    apt: deb=http://www.dbvis.com/product_download/dbvis-10.0.13/media/dbvis_linux_10_0_13.deb
+    apt: deb=http://www.dbvis.com/product_download/dbvis-10.0.15/media/dbvis_linux_10_0_15.deb
 
   become: true
