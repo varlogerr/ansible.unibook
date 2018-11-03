@@ -1,6 +1,8 @@
 ---
 - include_tasks: _install-php.yml
 - include_tasks: _install-composer.yml
-- include_tasks: _install-extension.yml php_extension="{{ item }}"
+- include_tasks: _install-extension.yml
+  vars:
+    php_extension: "{{ item }}"
   with_items:
   - "{{ php_extensions }}"
