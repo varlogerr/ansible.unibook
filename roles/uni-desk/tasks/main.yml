@@ -7,8 +7,8 @@
 
   become: true
 
-- name: create demo desk
-  copy: src="{{ item }}" dest="{{ desk_desks_dir }}/{{ item }}" mode=0664
+- name: create demo desks
+  copy: src="desks/{{ item }}" dest="{{ desk_desks_dir }}/{{ item }}" mode=0664
   with_items:
     - demo.sh
     - golang.sh
