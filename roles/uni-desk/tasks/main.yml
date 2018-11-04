@@ -1,4 +1,5 @@
 ---
+# src: # https://github.com/jamesob/desk
 - block:
 
   - name: checkout desk
@@ -18,4 +19,4 @@
   copy: src="{{ item }}" dest="{{ desk_desks_dir }}/{{ item }}" mode=0664
   with_items:
     - demo.sh
-    - golang.sh.demo
+    - golang.sh
