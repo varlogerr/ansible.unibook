@@ -15,4 +15,7 @@
       line: '[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true'
 
 - name: create demo desk
-  copy: src=demo.sh dest="{{ desk_desks_dir }}/demo.sh" mode=0664
+  copy: src="{{ item }}" dest="{{ desk_desks_dir }}/{{ item }}" mode=0664
+  with_items:
+    - demo.sh
+    - golang.sh.demo
