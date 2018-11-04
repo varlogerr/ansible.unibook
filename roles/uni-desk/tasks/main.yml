@@ -1,0 +1,18 @@
+---
+- block:
+
+  - name: checkout desk
+    copy: src=desk dest="{{ desk_bin_path }}" mode=0755
+
+  become: true
+
+- name: init desk directory
+  file: path="{{ desk_desks_dir }}" state=directory mode=0700
+
+- name: init desk bashrc
+  lineinfile:
+      dest: "{{ ansible_env.HOME }}/.bashrc"
+      line: '[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true'
+
+- name: create demo desk
+  copy: src=demo.sh dest="{{ desk_desks_dir }}/demo.sh" mode=0664

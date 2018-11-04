@@ -1,0 +1,3 @@
+---
+desk_bin_path: "/usr/local/bin/desk"
+desk_desks_dir: "{{ ansible_env.HOME }}/.desk/desks"
