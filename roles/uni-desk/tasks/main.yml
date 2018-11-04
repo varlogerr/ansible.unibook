@@ -10,6 +10,7 @@
 - name: create demo desks
   copy: src="desks/{{ item }}" dest="{{ desk_desks_dir }}/{{ item }}" mode=0664
   with_items:
+    - base
     - demo.sh
     - golang.sh
 
