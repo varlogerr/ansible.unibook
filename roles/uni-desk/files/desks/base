@@ -1,5 +1,5 @@
 export_ps1() {
-  bash_no=${1}
+  bash_no=${1:-1}
   desk_name=$(basename "${BASH_SOURCE[${bash_no}]}")
   desk_name="${desk_name%.*}"
   export PS1="${PS1}\[\033[01;34m\]${desk_name}\[\033[00m\] > "
