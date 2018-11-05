@@ -1,4 +1,6 @@
 desk_name=$(basename "${BASH_SOURCE[1]}")
 desk_name="${desk_name%.*}"
 
-export PS1="${PS1}\[\033[01;34m\]${desk_name}\[\033[00m\] > "
+export_ps1() {
+  export PS1="${PS1}\[\033[01;34m\]${desk_name}\[\033[00m\] > "
+}

@@ -13,3 +13,4 @@ print_demo() {
 print_demo
 
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/base"
+export_ps1
