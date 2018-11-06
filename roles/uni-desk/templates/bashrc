@@ -1,2 +1,0 @@
-[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-source {{ desk_bash_completion_path }}

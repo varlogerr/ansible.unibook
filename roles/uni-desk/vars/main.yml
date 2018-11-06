@@ -1,6 +1,2 @@
 ---
 desk_bin_path: "/usr/local/bin/desk"
-desk_dir: "{{ ansible_env.HOME }}/.desk"
-desk_desks_dir: "{{ desk_dir }}/desks"
-desk_bash_completion_path: "{{ desk_dir }}/bash_completion"
-desk_bashrc_path: "{{ desk_dir }}/desk_bashrc"

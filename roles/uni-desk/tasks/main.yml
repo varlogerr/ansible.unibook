@@ -2,31 +2,7 @@
 # src: # https://github.com/jamesob/desk
 - block:
 
-  - name: checkout desk
-    copy: src=desk dest="{{ desk_bin_path }}" mode=0755
+  - name: install desk
+    copy: src="desk-{{ desk_version }}" dest="{{ desk_bin_path }}" mode=0755
 
   become: true
-
-- name: create demo desks
-  copy: src="desks/{{ item }}" dest="{{ desk_desks_dir }}/{{ item }}" mode=0664
-  with_items:
-    - base
-    - demo.sh
-    - golang.sh
-
-- name: init desk directory
-  file: path="{{ item }}" state=directory mode=0700
-  with_items:
-    - "{{ desk_dir }}"
-    - "{{ desk_desks_dir }}"
-
-- name: create desk completion
-  copy: src=desk_bash_completion dest="{{ desk_bash_completion_path }}" mode=0644
-
-- name: create desk completion
-  template: src=bashrc dest="{{ desk_bashrc_path }}" mode=0644
-
-- name: add desk to bashrc
-  lineinfile:
-      dest: "{{ ansible_env.HOME }}/.bashrc"
-      line: "source {{ desk_bashrc_path }}"
