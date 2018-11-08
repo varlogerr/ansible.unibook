@@ -1,3 +1,6 @@
 ---
 - include_tasks: _install-vscode.yml
 - include_tasks: _install-extensions.yml
+
+# set up utils for go development
+# https://github.com/Microsoft/vscode-go/wiki/Go-tools-that-the-Go-extension-depends-on
