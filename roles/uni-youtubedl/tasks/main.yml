@@ -1,0 +1,10 @@
+---
+- block:
+
+  - name: install youtube-dl:{{ youtubedl_release }}
+    get_url:
+      dest: /usr/local/bin/youtube-dl
+      url: "https://github.com/rg3/youtube-dl/releases/download/{{ youtubedl_release }}/youtube-dl"
+      mode: 0755
+
+  become: true
