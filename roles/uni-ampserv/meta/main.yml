@@ -1,6 +1,0 @@
----
-dependencies:
-  - role: uni-apserv
-    php_extensions:
-    - mysql
-  - uni-mariadb

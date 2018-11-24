@@ -1,0 +1,4 @@
+---
+dependencies:
+  - uni.distromap
+  - uni.apt-utils
