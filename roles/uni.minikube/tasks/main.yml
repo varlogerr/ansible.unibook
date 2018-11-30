@@ -1,0 +1,10 @@
+---
+- block:
+
+  - name: install minikube:{{ minikube_release }}
+    get_url:
+      url: https://storage.googleapis.com/minikube/releases/{{ minikube_release }}/minikube-linux-amd64
+      dest: /usr/local/bin/minikube
+      mode: 0755
+
+  become: true
