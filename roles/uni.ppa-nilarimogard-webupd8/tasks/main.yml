@@ -1,0 +1,27 @@
+---
+- block:
+
+  - name: add apt signing key
+    apt_key:
+      id: 1DB29AFFF6C70907B57AA31F531EE72F4C9D234C
+      keyserver: hkp://keyserver.ubuntu.com:80
+      state: present
+    register: ppa_nilarimogard_webupd8_apt_key_added
+    ignore_errors: yes
+
+  - name: add apt signing key
+    apt_key:
+      id: 1DB29AFFF6C70907B57AA31F531EE72F4C9D234C
+      keyserver: keyserver.ubuntu.com
+      state: present
+    when: ppa_nilarimogard_webupd8_apt_key_added is failed
+
+  - name: add ppa
+    apt_repository:
+      repo: "{{ item }}"
+      filename: nilarimogard-webupd8
+    with_items:
+      - "deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu xenial main"
+      - "deb-src http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu xenial main "
+
+  become: true

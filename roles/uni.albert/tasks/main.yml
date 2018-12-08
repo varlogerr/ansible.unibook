@@ -1,0 +1,7 @@
+---
+- block:
+
+  - name: install albert
+    apt: name=albert state=latest update_cache=yes
+
+  become: true
