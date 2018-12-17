@@ -3,4 +3,4 @@
   set_fact: vbox_distro_codename_mapping="{{ distromap_codename_mapping | combine(vbox_distro_codename_mapping) }}"
 
 - name: set distro codename
-  set_fact: vbox_distro_codename="{{ vbox_distro_codename_mapping[ansible_distribution_release] }}"
+  set_fact: vbox_distro_codename="{{ vbox_distro_codename_mapping[ansible_lsb.codename] }}"
